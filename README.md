@@ -1,16 +1,88 @@
-# absensi
+<h2>Screenshots</h2>
 
-A new Flutter project.
+<table>
+<tr>
+<td>
+<img src="assets/screenshots/login.png" width="250">
+</td>
 
-## Getting Started
+<td>
+<img src="assets/screenshots/home.png" width="250">
+</td>
 
-This project is a starting point for a Flutter application.
+<td>
+<img src="assets/screenshots/absensi.png" width="250">
+</td>
+</tr>
 
-A few resources to get you started if this is your first Flutter project:
+<tr>
+<td align="center">
+Login
+</td>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<td align="center">
+Home
+</td>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<td align="center">
+Absensi
+</td>
+</tr>
+
+<tr>
+<td>
+<img src="assets/screenshots/history.png" width="250">
+</td>
+
+<td>
+<img src="assets/screenshots/settings.png" width="250">
+</td>
+
+<td>
+<img src="assets/screenshots/change-password.png" width="250">
+</td>
+</tr>
+
+<tr>
+<td align="center">
+History
+</td>
+
+<td align="center">
+Settings
+</td>
+
+<td align="center">
+Change Password
+</td>
+</tr>
+
+<tr>
+<td>
+<img src="assets/screenshots/form-absensi.png" width="250">
+</td>
+
+<td>
+<img src="assets/screenshots/form-kasbon.png" width="250">
+</td>
+
+<td>
+<img src="assets/screenshots/history-kasbon.png" width="250">
+</td>
+</tr>
+
+<tr>
+<td align="center">
+Form Absensi
+</td>
+
+<td align="center">
+Form Kasbon
+</td>
+
+<td align="center">
+History Kasbon
+</td>
+</tr>
+
+</table>
