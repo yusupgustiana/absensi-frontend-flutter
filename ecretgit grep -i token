@@ -1,0 +1,444 @@
+[33mcommit 639b58e923874d8414ae6cf2d182a59ffe65666e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32minit-setup[m[33m, [m[1;32mmain[m[33m, [m[1;32mdev[m[33m)[m
+Author: yusupgustiana <yusufgustiana@gmai.com>
+Date:   Sun Jun 21 11:12:56 2026 +0700
+
+    update code{all}
+
+ assets/icons/c.png                                 | Bin [31m0[m -> [32m30274[m bytes
+ assets/icons/icon_login.png                        | Bin [31m0[m -> [32m1519073[m bytes
+ assets/icons/work.png                              | Bin [31m0[m -> [32m253646[m bytes
+ assets/icons/work1.png                             | Bin [31m0[m -> [32m172122[m bytes
+ lib/core/constants/app_colors.dart                 |  40 [32m++[m
+ lib/helper/base_url.dart                           |  20 [31m-[m
+ lib/helper/date_picker.dart                        |  26 [32m+[m
+ lib/helper/theme_data.dart                         | 172 [32m+++++[m[31m-[m
+ lib/helper/variables.dart                          |  48 [32m++[m
+ lib/main.dart                                      |   7 [32m+[m[31m-[m
+ lib/models/request/edit_profile_request.dart       |   4 [32m+[m[31m-[m
+ lib/models/response/profile.dart                   |  18 [32m+[m[31m-[m
+ .../bloc/list_absen/llist_absensi_bloc.dart        |  27 [32m+[m[31m-[m
+ .../list_absen/llist_absensi_bloc.freezed.dart     | 261 [31m---------[m
+ .../bloc/list_absen/llist_absensi_event.dart       |  10 [32m+[m[31m-[m
+ lib/presentation/absensi/models/list_absensi.dart  |   8 [32m+[m[31m-[m
+ lib/presentation/absensi/pages/absensi_page.dart   | 128 [32m++[m[31m---[m
+ lib/presentation/absensi/pages/form_absensi.dart   |   6 [31m-[m
+ .../absensi/pages/list_id_lupa_absen.dart          |   6 [32m+[m[31m-[m
+ .../absensi/services/absensi_service.dart          |  73 [32m+[m[31m--[m
+ .../absensi/widgets/from_lupa_absen.dart           |  36 [32m++[m
+ .../absensi/widgets/status_absensi.dart            |   0
+ .../history/pages/history_absensiv2.dart           | 204 [32m++++[m[31m---[m
+ .../history/pages/list_approved_absensi_pages.dart |  21 [32m+[m[31m-[m
+ lib/presentation/home/dashboard.dart               | 503 [32m+++++++++[m[31m--------[m
+ .../kasbon/models/all_history_kasbon_models.dart   |  59 [32m+[m[31m-[m
+ .../kasbon/pages/all_list_kasbon_page.dart         | 235 [32m++++[m[31m----[m
+ .../pages/detail_history_kasbon_admin_page.dart    |  17 [32m+[m[31m-[m
+ .../kasbon/pages/detail_history_kasbon_pages.dart  |  11 [32m+[m[31m-[m
+ lib/presentation/kasbon/pages/history_kasbon.dart  |  36 [32m+[m[31m-[m
+ .../kasbon/pages/pengajuan_kasbon_page.dart        |   7 [32m+[m[31m-[m
+ .../kasbon/pages/upload_bukti_transfer_page.dart   |  14 [32m+[m[31m-[m
+ .../kasbon/services/kasbon_services.dart           | 160 [32m+++[m[31m---[m
+ lib/presentation/kasbon/widgets/status.dart        |  11 [32m+[m[31m-[m
+ lib/presentation/login/pages/login_page.dart       |  83 [32m++[m[31m-[m
+ lib/presentation/login/services/auth_service.dart  |  30 [32m+[m[31m-[m
+ .../bloc/profile_bloc/profile_bloc.freezed.dart    |  56 [32m+[m[31m-[m
+ .../setting/bloc/profile_bloc/profile_state.dart   |  10 [32m+[m[31m-[m
+ lib/presentation/setting/pages/profile_page.dart   | 278 [32m+++++[m[31m-----[m
+ lib/presentation/setting/pages/setting_page.dart   | 596 [32m++++++++++++[m[31m---------[m
+ .../setting/pages/ubah_password_page.dart          |   4 [31m-[m
+ .../setting/services/profile_services.dart         |  26 [32m+[m[31m-[m
+ pubspec.yaml                                       |   5 [32m+[m[31m-[m
+ 43 files changed, 1692 insertions(+), 1564 deletions(-)
+
+[33mcommit 66df67821d635f6b9b0c0028b479c039385e9ea1[m
+Author: yusupgustiana <yusufgustiana@gmai.com>
+Date:   Wed Jul 9 10:57:23 2025 +0700
+
+    update code
+
+ android/app/src/main/AndroidManifest.xml           |    1 [32m+[m
+ lib/bloc/list_absen/llist_absensi_bloc.dart        |  132 [31m--[m
+ lib/bloc/list_absen/llist_absensi_event.dart       |   26 [31m-[m
+ lib/bloc/list_absen/llist_absensi_state.dart       |   18 [31m-[m
+ lib/helper/base_url.dart                           |   26 [32m+[m[31m-[m
+ lib/helper/http_client.dart                        |    0
+ lib/helper/local_storage.dart                      |   18 [32m+[m
+ lib/helper/theme_data.dart                         |   27 [32m+[m
+ lib/main.dart                                      |   22 [32m+[m[31m-[m
+ lib/models/request/data_gabungan.dart              |    4 [32m+[m[31m-[m
+ lib/models/response/edit_profile.dart              |  114 [32m+[m[31m-[m
+ lib/models/response/profile.dart                   |   48 [32m+[m[31m-[m
+ lib/models/response/response_login.dart            |   69 [31m-[m
+ lib/models/response/status_absensi.dart            |   12 [32m+[m[31m-[m
+ lib/models/response/status_check.dart              |   29 [32m+[m[31m-[m
+ lib/pages/absensi_checkin_page.dart                |  472 [31m------[m
+ lib/pages/badge_notif_approved.dart                |   56 [31m-[m
+ lib/pages/contoh.dart                              |   84 [31m-[m
+ lib/pages/form_checkin_manual.dart                 |  276 [31m---[m
+ lib/pages/form_checkout_manual.dart                |  306 [31m----[m
+ lib/pages/form_lupa_checkin.dart                   |  372 [31m----[m
+ lib/pages/form_lupa_checkout.dart                  |  328 [31m----[m
+ lib/pages/home_page.dart                           |  301 [31m----[m
+ lib/pages/home_pagev2.dart                         |  139 [31m--[m
+ lib/pages/list_lupa_absen.dart                     |  263 [31m---[m
+ lib/pages/login_pagev2.dart                        |  209 [31m---[m
+ lib/pages/lupa absen/backup_form_absen.dart        |  398 [31m-----[m
+ .../bloc/list_absen/llist_absensi_bloc.dart        |   55 [32m+[m
+ .../list_absen/llist_absensi_bloc.freezed.dart     | 1774 [32m++++++++++[m[31m---------[m
+ .../bloc/list_absen/llist_absensi_event.dart       |   25 [32m+[m
+ .../bloc/list_absen/llist_absensi_state.dart       |   25 [32m+[m
+ lib/presentation/absensi/models/list_absensi.dart  |   84 [32m+[m[31m-[m
+ lib/presentation/absensi/pages/absensi_page.dart   |  241 [32m++[m[31m-[m
+ .../{form_lupa_absen.dart => form_absensi.dart}    |  423 [32m+++[m[31m--[m
+ .../absensi/pages/list_id_lupa_absen.dart          |   59 [32m+[m[31m-[m
+ .../absensi/services/absensi_service.dart          |  356 [32m++[m[31m--[m
+ .../absensi/services/approve_absen_service.dart    |   83 [32m+[m
+ lib/presentation/absensi/widgets/repository.dart   |   16 [32m+[m
+ lib/presentation/absensi/widgets/watermark.dart    |   82 [32m+[m
+ .../admin/pages/all_list_kasbon_page.dart          |  162 [31m--[m
+ lib/presentation/admin/services/admin_service.dart |   31 [31m-[m
+ .../history_absensiv2.dart}                        |  202 [32m++[m[31m-[m
+ .../history/pages/list_approved_absensi_pages.dart |  285 [32m++++[m
+ lib/presentation/history/widgets/history_card.dart |  114 [32m++[m
+ lib/presentation/home/dashboard.dart               |  176 [32m+[m[31m-[m
+ lib/presentation/kasbon/bloc/kasbon_bloc.dart      |   31 [32m+[m
+ .../kasbon/bloc/kasbon_bloc.freezed.dart           | 1278 [32m++++++++++++++[m
+ lib/presentation/kasbon/bloc/kasbon_event.dart     |   10 [32m+[m
+ lib/presentation/kasbon/bloc/kasbon_state.dart     |   12 [32m+[m
+ .../kasbon/models/all_history_kasbon_models.dart   |   92 [32m+[m
+ .../kasbon/pages/all_list_kasbon_page.dart         |  339 [32m++++[m
+ .../pages/detail_history_kasbon_admin_page.dart    |  191 [32m+++[m
+ .../kasbon/pages/detail_history_kasbon_pages.dart  |  163 [32m++[m
+ .../kasbon/pages/detail_kasbon_user_page.dart      |  206 [32m+++[m
+ lib/presentation/kasbon/pages/history_kasbon.dart  |  189 [32m+++[m
+ .../pages/pengajuan_kasbon_page.dart               |  128 [32m+[m[31m-[m
+ .../kasbon/pages/upload_bukti_transfer_page.dart   |  162 [32m++[m
+ .../kasbon/services/admin_service.dart             |   50 [32m+[m
+ .../kasbon/services/kasbon_services.dart           |  207 [32m+++[m
+ lib/presentation/kasbon/widgets/kasbon_card.dart   |   92 [32m+[m
+ lib/presentation/kasbon/widgets/status.dart        |   12 [32m+[m
+ lib/presentation/kasbon/widgets/upload_bukti.dart  |   98 [32m++[m
+ .../login}/bloc/auth/login_bloc.dart               |   14 [32m+[m[31m-[m
+ .../login}/bloc/auth/login_bloc.freezed.dart       |   80 [32m+[m[31m-[m
+ .../login}/bloc/auth/login_event.dart              |    0
+ .../login}/bloc/auth/login_state.dart              |    1 [32m+[m
+ .../bloc/forgot_password/forgot_password_bloc.dart |   64 [32m+[m
+ .../forgot_password_bloc.freezed.dart              | 1790 [32m++++++++++++++++++++[m
+ .../forgot_password/forgot_password_event.dart     |   11 [32m+[m
+ .../forgot_password/forgot_password_state.dart     |   14 [32m+[m
+ .../login/models/lupa_password_models.dart         |   22 [32m+[m
+ lib/presentation/login/models/response_login.dart  |   73 [32m+[m
+ lib/presentation/login/pages/login_page.dart       |   34 [32m+[m[31m-[m
+ .../login/pages/reset_password_page.dart           |  109 [32m++[m
+ lib/presentation/login/services/auth_service.dart  |  187 [32m+[m[31m-[m
+ .../setting/bloc/profile_bloc/profile_bloc.dart    |   12 [32m+[m[31m-[m
+ .../setting/models/history_kasbon_response.dart    |   72 [32m+[m
+ lib/presentation/setting/pages/history_kasbon.dart |  139 [31m--[m
+ lib/presentation/setting/pages/profile_page.dart   |    8 [32m+[m[31m-[m
+ lib/presentation/setting/pages/setting_page.dart   |  204 [32m++[m[31m-[m
+ .../setting/pages/ubah_password_page.dart          |  247 [32m+[m[31m--[m
+ .../setting/services/kasbon_service.dart           |   53 [31m-[m
+ .../setting/services/profile_services.dart         |   80 [32m+[m
+ lib/test.dart                                      |  134 [32m+[m[31m-[m
+ lib/time_input.dart                                |  393 [32m+++[m[31m--[m
+ lib/widgets/badge_notif_approved.dart              |   56 [32m+[m
+ lib/widgets/clock.dart                             |  168 [32m+[m[31m-[m
+ lib/widgets/int_ext.dart                           |   70 [32m+[m
+ lib/widgets/int_intl.dart                          |    0
+ lib/widgets/kirim_selfie.dart                      |  420 [32m++[m[31m---[m
+ lib/widgets/select_absen_card.dart                 |    2 [32m+[m[31m-[m
+ pubspec.lock                                       |  106 [32m+[m[31m-[m
+ pubspec.yaml                                       |   14 [32m+[m[31m-[m
+ 93 files changed, 9544 insertions(+), 6236 deletions(-)
+
+[33mcommit 55a4bd4e777dc97a9e174e463d87d3d4e676c2e1[m
+Author: yusupgustiana <yusufgustiana@gmai.com>
+Date:   Tue Jul 1 17:04:52 2025 +0700
+
+    update code kasbon
+
+ lib/bloc/auth/login_bloc.dart                      |   2 [32m+[m[31m-[m
+ lib/bloc/list_absen/llist_absensi_bloc.dart        |   4 [32m+[m[31m-[m
+ lib/helper/base_url.dart                           |  17 [32m+[m[31m-[m
+ lib/main.dart                                      |   8 [32m+[m[31m-[m
+ lib/models/request/data_gabungan.dart              |  22 [32m+[m[31m-[m
+ lib/models/response/profile.dart                   | 103 [32m+[m[31m--[m
+ lib/pages/form_lupa_checkin.dart                   | 694 [32m++++++++++[m[31m-----------[m
+ lib/pages/form_lupa_checkout.dart                  | 610 [32m+++++++++[m[31m---------[m
+ lib/pages/login_page.dart                          | 197 [31m------[m
+ lib/pages/profile_page.dart                        | 340 [31m----------[m
+ .../absensi/models}/list_absensi.dart              |   0
+ .../absensi/pages/absensi_page.dart}               |  14 [32m+[m[31m-[m
+ .../absensi/pages}/form_lupa_absen.dart            |  11 [32m+[m[31m-[m
+ .../absensi/pages}/list_id_lupa_absen.dart         |   2 [32m+[m[31m-[m
+ .../absensi}/services/absensi_service.dart         |   6 [32m+[m[31m-[m
+ .../admin/pages/all_list_kasbon_page.dart          | 162 [32m+++++[m
+ lib/presentation/admin/services/admin_service.dart |  31 [32m+[m
+ .../history/history_absensi.dart}                  |   8 [32m+[m[31m-[m
+ lib/{pages => presentation/home}/dashboard.dart    |  21 [32m+[m[31m-[m
+ lib/presentation/login/pages/login_page.dart       | 242 [32m+++++++[m
+ .../login}/services/auth_service.dart              |  12 [32m+[m[31m-[m
+ .../setting/bloc/profile_bloc}/profile_bloc.dart   |   4 [32m+[m[31m-[m
+ .../bloc/profile_bloc}/profile_bloc.freezed.dart   | 117 [32m++[m[31m--[m
+ .../setting/bloc/profile_bloc}/profile_event.dart  |   0
+ .../setting/bloc/profile_bloc}/profile_state.dart  |   4 [32m+[m[31m-[m
+ lib/presentation/setting/pages/history_kasbon.dart | 139 [32m+++++[m
+ .../setting/pages/pengajuan_kasbon_page.dart       | 206 [32m++++++[m
+ lib/presentation/setting/pages/profile_page.dart   | 255 [32m++++++++[m
+ lib/presentation/setting/pages/setting_page.dart   | 235 [32m+++++++[m
+ .../setting/pages/ubah_password_page.dart          | 189 [32m++++++[m
+ .../setting/services/kasbon_service.dart           |  53 [32m++[m
+ lib/widgets/formatter.dart                         |  35 [32m++[m
+ lib/widgets/kirim_selfie.dart                      |   2 [32m+[m[31m-[m
+ lib/widgets/logout.dart                            | 146 [32m++[m[31m---[m
+ lib/widgets/masked.dart                            |  54 [32m+[m[31m-[m
+ lib/widgets/select_absen_card.dart                 |   2 [32m+[m[31m-[m
+ lib/widgets/setting.dart                           |   0
+ pubspec.lock                                       |   8 [32m+[m
+ pubspec.yaml                                       |   1 [32m+[m
+ 39 files changed, 2486 insertions(+), 1470 deletions(-)
+
+[33mcommit f4da98e7d16088fb7f9385359f6280b379980abf[m
+Author: yusupgustiana <yusufgustiana@gmai.com>
+Date:   Tue Jul 1 09:35:43 2025 +0700
+
+    update code
+
+ lib/helper/base_url.dart             |   8 [32m+[m[31m-[m
+ lib/pages/absensi_checkout_page.dart |  88 [32m+[m[31m-----[m
+ lib/pages/form_checkin_manual.dart   | 514 [32m+++++++++++++++[m[31m----------------[m
+ lib/pages/form_checkout_manual.dart  | 568 [32m+++++++++++++++++[m[31m------------------[m
+ lib/pages/list_lupa_absen.dart       | 494 [32m+++++++++++++++[m[31m---------------[m
+ 5 files changed, 808 insertions(+), 864 deletions(-)
+
+[33mcommit fb6fd30752536f9920364c2b891fbd524a3d4351[m
+Author: yusupgustiana <yusufgustiana@gmai.com>
+Date:   Sat Jun 28 14:04:13 2025 +0700
+
+    first commit
+
+ .gitignore                                         |   43 [32m+[m
+ .metadata                                          |   45 [32m+[m
+ analysis_options.yaml                              |   28 [32m+[m
+ android/.gitignore                                 |   13 [32m+[m
+ android/app/build.gradle                           |   48 [32m+[m
+ android/app/src/debug/AndroidManifest.xml          |    7 [32m+[m
+ android/app/src/main/AndroidManifest.xml           |   54 [32m+[m
+ .../kotlin/com/example/absensi/MainActivity.kt     |    5 [32m+[m
+ .../main/res/drawable-v21/launch_background.xml    |   12 [32m+[m
+ .../src/main/res/drawable/launch_background.xml    |   12 [32m+[m
+ .../src/main/res/mipmap-anydpi-v26/ic_launcher.xml |    5 [32m+[m
+ .../app/src/main/res/mipmap-hdpi/ic_launcher.png   |  Bin [31m0[m -> [32m3197[m bytes
+ .../res/mipmap-hdpi/ic_launcher_adaptive_back.png  |  Bin [31m0[m -> [32m5744[m bytes
+ .../res/mipmap-hdpi/ic_launcher_adaptive_fore.png  |  Bin [31m0[m -> [32m3630[m bytes
+ .../app/src/main/res/mipmap-mdpi/ic_launcher.png   |  Bin [31m0[m -> [32m1712[m bytes
+ .../res/mipmap-mdpi/ic_launcher_adaptive_back.png  |  Bin [31m0[m -> [32m3216[m bytes
+ .../res/mipmap-mdpi/ic_launcher_adaptive_fore.png  |  Bin [31m0[m -> [32m2030[m bytes
+ .../app/src/main/res/mipmap-xhdpi/ic_launcher.png  |  Bin [31m0[m -> [32m4438[m bytes
+ .../res/mipmap-xhdpi/ic_launcher_adaptive_back.png |  Bin [31m0[m -> [32m9186[m bytes
+ .../res/mipmap-xhdpi/ic_launcher_adaptive_fore.png |  Bin [31m0[m -> [32m4980[m bytes
+ .../app/src/main/res/mipmap-xxhdpi/ic_launcher.png |  Bin [31m0[m -> [32m7704[m bytes
+ .../mipmap-xxhdpi/ic_launcher_adaptive_back.png    |  Bin [31m0[m -> [32m16336[m bytes
+ .../mipmap-xxhdpi/ic_launcher_adaptive_fore.png    |  Bin [31m0[m -> [32m8483[m bytes
+ .../src/main/res/mipmap-xxxhdpi/ic_launcher.png    |  Bin [31m0[m -> [32m10727[m bytes
+ .../mipmap-xxxhdpi/ic_launcher_adaptive_back.png   |  Bin [31m0[m -> [32m26184[m bytes
+ .../mipmap-xxxhdpi/ic_launcher_adaptive_fore.png   |  Bin [31m0[m -> [32m12212[m bytes
+ android/app/src/main/res/values-night/styles.xml   |   18 [32m+[m
+ android/app/src/main/res/values/styles.xml         |   18 [32m+[m
+ android/app/src/profile/AndroidManifest.xml        |    7 [32m+[m
+ android/build.gradle                               |   18 [32m+[m
+ android/gradle.properties                          |    3 [32m+[m
+ android/gradle/wrapper/gradle-wrapper.properties   |    5 [32m+[m
+ android/settings.gradle                            |   25 [32m+[m
+ assets/img/appointment.png                         |  Bin [31m0[m -> [32m15103[m bytes
+ assets/img/bglogin1.png                            |  Bin [31m0[m -> [32m21775[m bytes
+ assets/img/brand.png                               |  Bin [31m0[m -> [32m27387[m bytes
+ assets/img/data.png                                |  Bin [31m0[m -> [32m10198[m bytes
+ assets/img/detailcustomer.png                      |  Bin [31m0[m -> [32m275501[m bytes
+ assets/img/feed.png                                |  Bin [31m0[m -> [32m7822[m bytes
+ assets/img/legal_document.png                      |  Bin [31m0[m -> [32m2210[m bytes
+ assets/img/model.png                               |  Bin [31m0[m -> [32m7008[m bytes
+ assets/img/nophoto.jpg                             |  Bin [31m0[m -> [32m99854[m bytes
+ assets/img/opened.png                              |  Bin [31m0[m -> [32m203966[m bytes
+ assets/img/poto.png                                |  Bin [31m0[m -> [32m10805[m bytes
+ assets/img/product.png                             |  Bin [31m0[m -> [32m16366[m bytes
+ assets/img/productbrand.png                        |  Bin [31m0[m -> [32m30349[m bytes
+ assets/img/productname.png                         |  Bin [31m0[m -> [32m17964[m bytes
+ assets/img/produkmobil.png                         |  Bin [31m0[m -> [32m17994[m bytes
+ assets/img/profile.png                             |  Bin [31m0[m -> [32m1401[m bytes
+ assets/img/rescheduling.png                        |  Bin [31m0[m -> [32m15989[m bytes
+ assets/img/sku.png                                 |  Bin [31m0[m -> [32m1239[m bytes
+ assets/img/store.png                               |  Bin [31m0[m -> [32m12601[m bytes
+ assets/img/task.png                                |  Bin [31m0[m -> [32m45064[m bytes
+ assets/img/tasklist.png                            |  Bin [31m0[m -> [32m8845[m bytes
+ assets/img/zen.png                                 |  Bin [31m0[m -> [32m37096[m bytes
+ assets/img/zentralink.jpg                          |  Bin [31m0[m -> [32m104555[m bytes
+ assets/json/bubbly-map-447815-h4-e094f6b6d03e.json |   13 [32m+[m
+ assets/json/bubbly-map-447815-h4-e2efb7d31be5.json |   13 [32m+[m
+ assets/json/kurirzentralink-c6333203fbad.json      |   13 [32m+[m
+ devtools_options.yaml                              |    3 [32m+[m
+ ios/.gitignore                                     |   34 [32m+[m
+ ios/Flutter/AppFrameworkInfo.plist                 |   26 [32m+[m
+ ios/Flutter/Debug.xcconfig                         |    1 [32m+[m
+ ios/Flutter/Release.xcconfig                       |    1 [32m+[m
+ ios/Runner.xcodeproj/project.pbxproj               |  616 [32m+++++[m
+ .../project.xcworkspace/contents.xcworkspacedata   |    7 [32m+[m
+ .../xcshareddata/IDEWorkspaceChecks.plist          |    8 [32m+[m
+ .../xcshareddata/WorkspaceSettings.xcsettings      |    8 [32m+[m
+ .../xcshareddata/xcschemes/Runner.xcscheme         |   98 [32m+[m
+ ios/Runner.xcworkspace/contents.xcworkspacedata    |    7 [32m+[m
+ .../xcshareddata/IDEWorkspaceChecks.plist          |    8 [32m+[m
+ .../xcshareddata/WorkspaceSettings.xcsettings      |    8 [32m+[m
+ ios/Runner/AppDelegate.swift                       |   13 [32m+[m
+ .../AppIcon.appiconset/Contents.json               |  122 [32m+[m
+ .../AppIcon.appiconset/Icon-App-1024x1024@1x.png   |  Bin [31m0[m -> [32m10932[m bytes
+ .../AppIcon.appiconset/Icon-App-20x20@1x.png       |  Bin [31m0[m -> [32m295[m bytes
+ .../AppIcon.appiconset/Icon-App-20x20@2x.png       |  Bin [31m0[m -> [32m406[m bytes
+ .../AppIcon.appiconset/Icon-App-20x20@3x.png       |  Bin [31m0[m -> [32m450[m bytes
+ .../AppIcon.appiconset/Icon-App-29x29@1x.png       |  Bin [31m0[m -> [32m282[m bytes
+ .../AppIcon.appiconset/Icon-App-29x29@2x.png       |  Bin [31m0[m -> [32m462[m bytes
+ .../AppIcon.appiconset/Icon-App-29x29@3x.png       |  Bin [31m0[m -> [32m704[m bytes
+ .../AppIcon.appiconset/Icon-App-40x40@1x.png       |  Bin [31m0[m -> [32m406[m bytes
+ .../AppIcon.appiconset/Icon-App-40x40@2x.png       |  Bin [31m0[m -> [32m586[m bytes
+ .../AppIcon.appiconset/Icon-App-40x40@3x.png       |  Bin [31m0[m -> [32m862[m bytes
+ .../AppIcon.appiconset/Icon-App-60x60@2x.png       |  Bin [31m0[m -> [32m862[m bytes
+ .../AppIcon.appiconset/Icon-App-60x60@3x.png       |  Bin [31m0[m -> [32m1674[m bytes
+ .../AppIcon.appiconset/Icon-App-76x76@1x.png       |  Bin [31m0[m -> [32m762[m bytes
+ .../AppIcon.appiconset/Icon-App-76x76@2x.png       |  Bin [31m0[m -> [32m1226[m bytes
+ .../AppIcon.appiconset/Icon-App-83.5x83.5@2x.png   |  Bin [31m0[m -> [32m1418[m bytes
+ .../LaunchImage.imageset/Contents.json             |   23 [32m+[m
+ .../LaunchImage.imageset/LaunchImage.png           |  Bin [31m0[m -> [32m68[m bytes
+ .../LaunchImage.imageset/LaunchImage@2x.png        |  Bin [31m0[m -> [32m68[m bytes
+ .../LaunchImage.imageset/LaunchImage@3x.png        |  Bin [31m0[m -> [32m68[m bytes
+ .../Assets.xcassets/LaunchImage.imageset/README.md |    5 [32m+[m
+ ios/Runner/Base.lproj/LaunchScreen.storyboard      |   37 [32m+[m
+ ios/Runner/Base.lproj/Main.storyboard              |   26 [32m+[m
+ ios/Runner/Info.plist                              |   49 [32m+[m
+ ios/Runner/Runner-Bridging-Header.h                |    1 [32m+[m
+ ios/RunnerTests/RunnerTests.swift                  |   12 [32m+[m
+ lib/bloc/auth/login_bloc.dart                      |   50 [32m+[m
+ lib/bloc/auth/login_bloc.freezed.dart              | 1140 [32m+++++++++[m
+ lib/bloc/auth/login_event.dart                     |   13 [32m+[m
+ lib/bloc/auth/login_state.dart                     |    9 [32m+[m
+ lib/bloc/bloc/profile_bloc.dart                    |   50 [32m+[m
+ lib/bloc/bloc/profile_bloc.freezed.dart            | 1760 [32m++++++++++++++[m
+ lib/bloc/bloc/profile_event.dart                   |   19 [32m+[m
+ lib/bloc/bloc/profile_state.dart                   |   13 [32m+[m
+ lib/bloc/list_absen/llist_absensi_bloc.dart        |  132 [32m+[m
+ .../list_absen/llist_absensi_bloc.freezed.dart     | 2550 [32m++++++++++++++++++++[m
+ lib/bloc/list_absen/llist_absensi_event.dart       |   26 [32m+[m
+ lib/bloc/list_absen/llist_absensi_state.dart       |   18 [32m+[m
+ lib/helper/base_url.dart                           |    9 [32m+[m
+ lib/main.dart                                      |   59 [32m+[m
+ lib/models/request/data_gabungan.dart              |   13 [32m+[m
+ lib/models/request/edit_profile_request.dart       |   26 [32m+[m
+ lib/models/response/edit_profile.dart              |   57 [32m+[m
+ lib/models/response/list_absensi.dart              |   70 [32m+[m
+ lib/models/response/profile.dart                   |   93 [32m+[m
+ lib/models/response/response_login.dart            |   69 [32m+[m
+ lib/models/response/status_absensi.dart            |   57 [32m+[m
+ lib/models/response/status_check.dart              |   25 [32m+[m
+ lib/pages/absensi_checkin_page.dart                |  472 [32m++++[m
+ lib/pages/absensi_checkout_page.dart               |  684 [32m++++++[m
+ lib/pages/badge_notif_approved.dart                |   56 [32m+[m
+ lib/pages/contoh.dart                              |   84 [32m+[m
+ lib/pages/dashboard.dart                           |  446 [32m++++[m
+ lib/pages/form_checkin_manual.dart                 |  276 [32m+++[m
+ lib/pages/form_checkout_manual.dart                |  306 [32m+++[m
+ lib/pages/form_lupa_checkin.dart                   |  372 [32m+++[m
+ lib/pages/form_lupa_checkout.dart                  |  328 [32m+++[m
+ lib/pages/home_page.dart                           |  301 [32m+++[m
+ lib/pages/home_pagev2.dart                         |  139 [32m++[m
+ lib/pages/list_absensi.dart                        |  375 [32m+++[m
+ lib/pages/list_lupa_absen.dart                     |  263 [32m++[m
+ lib/pages/login_page.dart                          |  197 [32m++[m
+ lib/pages/login_pagev2.dart                        |  209 [32m++[m
+ lib/pages/lupa absen/backup_form_absen.dart        |  398 [32m+++[m
+ lib/pages/lupa absen/form_lupa_absen.dart          |  732 [32m++++++[m
+ lib/pages/lupa absen/list_id_lupa_absen.dart       |  222 [32m++[m
+ lib/pages/profile_page.dart                        |  340 [32m+++[m
+ lib/services/absensi_service.dart                  |  272 [32m+++[m
+ lib/services/auth_service.dart                     |  151 [32m++[m
+ lib/test.dart                                      |   51 [32m+[m
+ lib/time_input.dart                                |  134 [32m+[m
+ lib/widgets/camera.dart                            |  139 [32m++[m
+ lib/widgets/clock.dart                             |   92 [32m+[m
+ lib/widgets/kirim_selfie.dart                      |  210 [32m++[m
+ lib/widgets/logout.dart                            |   74 [32m+[m
+ lib/widgets/masked.dart                            |   30 [32m+[m
+ lib/widgets/select_absen_card.dart                 |   62 [32m+[m
+ lib/widgets/setting.dart                           |    0
+ linux/.gitignore                                   |    1 [32m+[m
+ linux/CMakeLists.txt                               |  145 [32m++[m
+ linux/flutter/CMakeLists.txt                       |   88 [32m+[m
+ linux/flutter/generated_plugin_registrant.cc       |   23 [32m+[m
+ linux/flutter/generated_plugin_registrant.h        |   15 [32m+[m
+ linux/flutter/generated_plugins.cmake              |   26 [32m+[m
+ linux/main.cc                                      |    6 [32m+[m
+ linux/my_application.cc                            |  124 [32m+[m
+ linux/my_application.h                             |   18 [32m+[m
+ macos/.gitignore                                   |    7 [32m+[m
+ macos/Flutter/Flutter-Debug.xcconfig               |    1 [32m+[m
+ macos/Flutter/Flutter-Release.xcconfig             |    1 [32m+[m
+ macos/Flutter/GeneratedPluginRegistrant.swift      |   22 [32m+[m
+ macos/Runner.xcodeproj/project.pbxproj             |  705 [32m++++++[m
+ .../xcshareddata/IDEWorkspaceChecks.plist          |    8 [32m+[m
+ .../xcshareddata/xcschemes/Runner.xcscheme         |   98 [32m+[m
+ macos/Runner.xcworkspace/contents.xcworkspacedata  |    7 [32m+[m
+ .../xcshareddata/IDEWorkspaceChecks.plist          |    8 [32m+[m
+ macos/Runner/AppDelegate.swift                     |    9 [32m+[m
+ .../AppIcon.appiconset/Contents.json               |   68 [32m+[m
+ .../AppIcon.appiconset/app_icon_1024.png           |  Bin [31m0[m -> [32m102994[m bytes
+ .../AppIcon.appiconset/app_icon_128.png            |  Bin [31m0[m -> [32m5680[m bytes
+ .../AppIcon.appiconset/app_icon_16.png             |  Bin [31m0[m -> [32m520[m bytes
+ .../AppIcon.appiconset/app_icon_256.png            |  Bin [31m0[m -> [32m14142[m bytes
+ .../AppIcon.appiconset/app_icon_32.png             |  Bin [31m0[m -> [32m1066[m bytes
+ .../AppIcon.appiconset/app_icon_512.png            |  Bin [31m0[m -> [32m36406[m bytes
+ .../AppIcon.appiconset/app_icon_64.png             |  Bin [31m0[m -> [32m2218[m bytes
+ macos/Runner/Base.lproj/MainMenu.xib               |  343 [32m+++[m
+ macos/Runner/Configs/AppInfo.xcconfig              |   14 [32m+[m
+ macos/Runner/Configs/Debug.xcconfig                |    2 [32m+[m
+ macos/Runner/Configs/Release.xcconfig              |    2 [32m+[m
+ macos/Runner/Configs/Warnings.xcconfig             |   13 [32m+[m
+ macos/Runner/DebugProfile.entitlements             |   12 [32m+[m
+ macos/Runner/Info.plist                            |   32 [32m+[m
+ macos/Runner/MainFlutterWindow.swift               |   15 [32m+[m
+ macos/Runner/Release.entitlements                  |    8 [32m+[m
+ macos/RunnerTests/RunnerTests.swift                |   12 [32m+[m
+ pubspec.lock                                       | 1108 [32m+++++++++[m
+ pubspec.yaml                                       |   93 [32m+[m
+ test/widget_test.dart                              |   30 [32m+[m
+ web/favicon.png                                    |  Bin [31m0[m -> [32m917[m bytes
+ web/icons/Icon-192.png                             |  Bin [31m0[m -> [32m5292[m bytes
+ web/icons/Icon-512.png                             |  Bin [31m0[m -> [32m8252[m bytes
+ web/icons/Icon-maskable-192.png                    |  Bin [31m0[m -> [32m5594[m bytes
+ web/icons/Icon-maskable-512.png                    |  Bin [31m0[m -> [32m20998[m bytes
+ web/index.html                                     |   38 [32m+[m
+ web/manifest.json                                  |   35 [32m+[m
+ windows/.gitignore                                 |   17 [32m+[m
+ windows/CMakeLists.txt                             |  108 [32m+[m
+ windows/flutter/CMakeLists.txt                     |  109 [32m+[m
+ windows/flutter/generated_plugin_registrant.cc     |   23 [32m+[m
+ windows/flutter/generated_plugin_registrant.h      |   15 [32m+[m
+ windows/flutter/generated_plugins.cmake            |   27 [32m+[m
+ windows/runner/CMakeLists.txt                      |   40 [32m+[m
+ windows/runner/Runner.rc                           |  121 [32m+[m
+ windows/runner/flutter_window.cpp                  |   71 [32m+[m
+ windows/runner/flutter_window.h                    |   33 [32m+[m
+ windows/runner/main.cpp                            |   43 [32m+[m
+ windows/runner/resource.h                          |   16 [32m+[m
+ windows/runner/resources/app_icon.ico              |  Bin [31m0[m -> [32m33772[m bytes
+ windows/runner/runner.exe.manifest                 |   14 [32m+[m
+ windows/runner/utils.cpp                           |   65 [32m+[m
+ windows/runner/utils.h                             |   19 [32m+[m
+ windows/runner/win32_window.cpp                    |  288 [32m+++[m
+ windows/runner/win32_window.h                      |  102 [32m+[m
+ 216 files changed, 19439 insertions(+)
+
+[33mcommit f8cba4dc71ec5fbf825f1894b6071151c7c5c349[m
+Author: yusupgustiana <yusufgustiana@gmai.com>
+Date:   Sat Jun 28 14:03:50 2025 +0700
+
+    first commit
+
+ README.md | 16 [32m++++++++++++++++[m
+ 1 file changed, 16 insertions(+)
