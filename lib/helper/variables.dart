@@ -18,18 +18,18 @@
 
 //ini yang dipake
 
-String baseUrl = 'http://192.168.1.5:8080/api';
-String baseUrlLogin = 'http://192.168.1.5:8080/api';
+String baseUrl = 'http://10.53.183.166:8080/api';
+String baseUrlLogin = 'http://10.53.183.166:8080/api';
 // Foto profile user (misalnya disimpan di storage/app/public/profile)
-String baseFoto = 'http://192.168.1.5:8080/laravel-api/storage/profile/';
+String baseFoto = 'http://10.53.183.166:8080/laravel-api/storage/profile/';
 
 // Bukti transfer (misalnya disimpan di storage/app/public/bukti_transfer)
 String baseSimpanFoto =
-    'http://192.168.1.5:8080/laravel-api/storage/bukti_transfer/';
+    'http://10.53.183.166:8080/laravel-api/storage/bukti_transfer/';
 
 // Base URL project Laravel (untuk akses asset umum)
-String baseUrlL = 'http://192.168.1.5:8080/api/kasbon/';
-String baseUrlProfile = 'http://192.168.1.5:8080/api';
+String baseUrlL = 'http://10.53.183.166:8080/api/kasbon/';
+String baseUrlProfile = 'http://10.53.183.166:8080/api';
 
 // String baseUrl =
 //     'https://absensi-backend-laravel-production.up.railway.app/api/absensi';

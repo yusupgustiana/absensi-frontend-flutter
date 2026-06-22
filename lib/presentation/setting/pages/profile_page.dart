@@ -118,7 +118,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
         listener: (context, state) {
           state.maybeWhen(
             loadedProfile: (data) {
-              final profile = data!.detailProfileModel;
+              final profile = data.detailProfileModel;
               nameController.text = profile.nama!;
               usernameController.text = profile.username!;
               emailController.text = profile.email!;

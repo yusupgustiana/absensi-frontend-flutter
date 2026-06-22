@@ -186,8 +186,7 @@ class _ListApprovedAbsensiPagesState extends State<ListApprovedAbsensiPages> {
                                                         ? Colors.red
                                                         : Colors.black,
                                                 fontWeight:
-                                                    checkinButNotApproved ||
-                                                            checkin == null
+                                                    checkinButNotApproved
                                                         ? FontWeight.bold
                                                         : FontWeight.normal,
                                               ),
@@ -209,8 +208,7 @@ class _ListApprovedAbsensiPagesState extends State<ListApprovedAbsensiPages> {
                                                         ? Colors.red
                                                         : Colors.black,
                                                 fontWeight:
-                                                    checkoutButNotApproved ||
-                                                            checkout == null
+                                                    checkoutButNotApproved
                                                         ? FontWeight.bold
                                                         : FontWeight.normal,
                                               ),
