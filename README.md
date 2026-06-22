@@ -7,11 +7,11 @@
 </td>
 
 <td>
-<img src="assets/screenshots/home.png" width="250">
+<img src="assets/screenshots/homepage.png" width="250">
 </td>
 
 <td>
-<img src="assets/screenshots/absensi.png" width="250">
+<img src="assets/screenshots/absensi.jpg" width="250">
 </td>
 </tr>
 
